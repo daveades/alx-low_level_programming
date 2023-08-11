@@ -1,3 +1,3 @@
- # 0x00. C
+ # ALX LOW LEVEL PROGRAMMING
 
-This repository contains my ALX 0x00.C Project
+This repository contains my ALX low level programming Project
