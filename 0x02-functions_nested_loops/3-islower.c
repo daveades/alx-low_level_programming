@@ -1,22 +1,23 @@
 # include "main.h"
 
+/**
+ * _islower - check if char is lowercase
+ * @c: is the char to be checked
+ * Return: 1 if char is lowercase, otherwise 0.
+ */
+
 int _islower(int c)
 {
 	char ch;
-	int ret_val;
+	int retval;
 
+	retval = 0;
 	for (ch = 'a'; ch <= 'z'; ch++)
 	{
 		if (ch == c)
 		{
-			ret_val = 1;
+			retval = 1;
 			break;
 		}
-		else
-		{
-			ret_val = 0;
-			break;
-		}
-	}
 	return (ret_val);
 }
