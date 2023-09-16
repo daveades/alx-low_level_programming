@@ -3,18 +3,20 @@
 int _islower(int c)
 {
 	char ch;
+	int ret_val;
 
 	for (ch = 'a'; ch <= 'z'; ch++)
 	{
 		if (ch == c)
 		{
-			return (1);
+			ret_val = 1;
 			break;
 		}
 		else
 		{
-			return (0);
+			ret_val = 0;
 			break;
 		}
 	}
+	return (ret_val);
 }
