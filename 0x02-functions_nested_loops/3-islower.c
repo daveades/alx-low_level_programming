@@ -8,6 +8,7 @@ int _islower(int c)
 	{
 		if (ch == c)
 			return (1);
+			break;
 		else
 			return (0);
 	}
