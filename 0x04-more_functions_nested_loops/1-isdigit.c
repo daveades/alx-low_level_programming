@@ -20,6 +20,6 @@ int _isdigit(int c)
 			retval = 1;
 			break;
 		}
-		return (retval);
 	}
+	return (retval);
 }
