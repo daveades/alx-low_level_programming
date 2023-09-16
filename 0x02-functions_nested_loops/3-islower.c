@@ -19,5 +19,5 @@ int _islower(int c)
 			retval = 1;
 			break;
 		}
-	return (ret_val);
+	return (retval);
 }
