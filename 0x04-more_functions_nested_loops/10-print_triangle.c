@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * print_triangle - prints a triangle
+ * print_triangle - Prints a triangle
  *
- *@size - the base of the triangle
+ *@size: The number of '#' char for the triangle base
  */
 void print_triangle(int size)
 {
