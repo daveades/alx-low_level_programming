@@ -1,9 +1,15 @@
 #include <stdio.h>
 
+/**
+ * main - Entry point
+ * description: prints the highest prime factor of 612852475143
+ *
+ * Return: Always 0 (success)
+ */
 
 int main(void)
 {
-	long unsigned int number;
+	unsigned long int number;
 	int prime;
 
 	number  = 612852475143;
@@ -20,6 +26,5 @@ int main(void)
 		}
 	}
 	printf("%d\n", prime);
+	return (0);
 }
-
-
