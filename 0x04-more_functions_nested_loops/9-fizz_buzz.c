@@ -28,11 +28,10 @@ int main(void)
 		}
 		else
 		{
-			printf("%d ", number);
+			printf("%d", number);
 		}
-		if (number == 100)
+		if (number < 100)
 		{
-			break;
 			putchar(' ');
 		}
 	}
