@@ -1,2 +1,2 @@
-# MORE FUNCTIONS AND NESTED LOOPS
+# More functions nested loops
 This is my "More functions and Nested loops" project directory
