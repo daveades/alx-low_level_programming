@@ -2,8 +2,8 @@
 
 /**
  * _pow_recursion - Calculate x to the power of y
- * @x - integer to be raised by y
- * @y - index of x
+ * @x: integer to be raised by y
+ * @y: index of x
  *
  * Return: x to the power of y
  */
