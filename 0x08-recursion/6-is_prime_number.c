@@ -16,7 +16,7 @@ int is_prime_number(int n)
 	}
 	else
 	{
-		check_num(n, 2);
+		return (check_num(n, 2));
 
 	}
 }
