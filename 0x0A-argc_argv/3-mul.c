@@ -1,7 +1,14 @@
-#include "main.h" 
+#include "main.h"
 
 int _toint(char *strptr);
 
+/**
+ * main - multiplies two int command line args
+ * @argc: arg count;
+ * @argv: array(pointer to) of pointers to strings(command line args)
+ *
+ * Return: Always 0.
+ */
 int main(int argc, char **argv)
 {
 	int i;
@@ -20,11 +27,15 @@ int main(int argc, char **argv)
 		}
 		printf("%d\n", number);
 	}
-
-
-
+	return (0);
 }
 
+/**
+ * _toint - converts a string to an integer
+ * @strptr: pointer to first char of string
+ *
+ * Return: converted string of type int.
+ */
 int _toint(char *strptr)
 {
 	int num;
