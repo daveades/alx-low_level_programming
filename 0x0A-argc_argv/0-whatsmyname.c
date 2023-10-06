@@ -3,7 +3,7 @@
 /**
  * main - prints the name of the program to stdout
  * @argc: argument count
- * @argv: array of pointers to string (pointer to pointer to char)
+ * @argv: array(pointer to) of pointers to strings(command line args)
  *
  * Return: Always 0.
  */
