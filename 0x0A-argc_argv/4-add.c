@@ -58,6 +58,7 @@ int _toint(char *strptr, int *validptr)
 		if (*strptr < 48 || *strptr > 57)
 		{
 			*validptr = 0;
+			break;
 		}
 		else
 		{
