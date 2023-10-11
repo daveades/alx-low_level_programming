@@ -1,5 +1,5 @@
 #include <stdlib.h>
-int _strlen (char *str);
+int _strlen(char *str);
 
 /**
  * _strdup -duplicates a string and returns a pointer to the duplicate
