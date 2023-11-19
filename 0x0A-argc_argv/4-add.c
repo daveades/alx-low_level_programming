@@ -13,29 +13,32 @@ int main(int argc, char **argv)
 	int sum;
 	int number;
 	int i;
+	char *s;
 
 	if (argc < 2)
 	{
-		printf("%d", 0);
+		printf("%d\n", 0);
 	}
 	else
 	{
 		sum = 0;
 		for (i = 1; i < argc; i++)
 		{
-			if (*argv[i] < 49 || *argv[i] > 57)
+			s = argv[i];
+			while (*s != 0)
 			{
-				printf("Error\n");
-				return (1);
+				if (*s < 48 || *s > 57)
+				{
+					printf("Error\n");
+					return (1);
+				}
+				s += 1;
 			}
-			else
-			{
-				number = atoi(argv[i]);
-				sum += number;
-			}
+			number = atoi(argv[i]);
+			sum += number;
 		}
+		printf("%d\n", sum);
 	}
-	printf("%d\n", sum);
 	return (0);
 }
 
