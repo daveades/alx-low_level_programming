@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char **argv)
+{
+	int num_of_coins;
+	int amount;
+	int denomination;
+	int position;
+	int coins[] = {25, 10, 5, 2, 1};
+
+	if (argc != 2)
+	{
+		printf("Error\n");
+		return (1);
+	}
+	amount = atoi(argv[1]);
+
+	if (amount < 0)
+	{
+		printf("%d\n", 0);
+	}
+	else
+	{
+		num_of_coins = 0;
+		while (amount != 0)
+		{
+			denomination = coins[position];
+			if (amount >= denomination)
+			{
+				amount -= denomination;
+				num_of_coins++;
+			}
+			else
+			{
+				position++;
+			}
+		}
+		printf("%d\n", num_of_coins);
+		return (0);
+	}
+}
