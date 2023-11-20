@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * main - Entry point
+ *
+ * @argc: num of command line args
+ * @argv: array of command line args
+ * Return: 0 if success and 1 if fail
+ */
 int main(int argc, char **argv)
 {
 	int num_of_coins;
@@ -37,6 +44,6 @@ int main(int argc, char **argv)
 			}
 		}
 		printf("%d\n", num_of_coins);
-		return (0);
 	}
+	return (0);
 }
