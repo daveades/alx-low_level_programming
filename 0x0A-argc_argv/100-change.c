@@ -17,21 +17,23 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		return (1);
 	}
-
-	amount = atoi(argv[1]);
-	num_of_coins = 0;
-	while (amount > 0)
+	else
 	{
-		if (amount >= coins[value])
+		amount = atoi(argv[1]);
+		num_of_coins = 0;
+		while (amount > 0)
 		{
-			amount -= coins[value];
-			num_of_coins++;
+			if (amount >= coins[value])
+			{
+				amount -= coins[value];
+				num_of_coins++;
+			}
+			else
+			{
+				value++;
+			}
 		}
-		else
-		{
-			value++;
-		}
+		printf("%d\n", num_of_coins);
+		return (0);
 	}
-	printf("%d\n", num_of_coins);
-	return (0);
 }
