@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 
 /**
  * main - Entry point
@@ -10,7 +9,7 @@
  */
 int main(int argc, char **argv)
 {
-	int num_of_coins, position, amount, denomination;
+	int num_of_coins, value, amount;
 	int coins[] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
@@ -23,15 +22,14 @@ int main(int argc, char **argv)
 	num_of_coins = 0;
 	while (amount > 0)
 	{
-		denomination = coins[position];
-		if (amount >= denomination)
+		if (amount >= coins[value])
 		{
-			amount -= denomination;
-			num_of_coins++;
+			amount -= coins[value];
+			num_of_coins += 1;
 		}
 		else
 		{
-			position++;
+			value += 1;
 		}
 	}
 	printf("%d\n", num_of_coins);
