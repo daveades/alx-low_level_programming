@@ -10,10 +10,7 @@
  */
 int main(int argc, char **argv)
 {
-	int num_of_coins;
-	int amount;
-	int denomination;
-	int position;
+	int num_of_coins, position, amount, denomination;
 	int coins[] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
@@ -25,8 +22,8 @@ int main(int argc, char **argv)
 
 	if (amount < 0)
 	{
-		printf("%d\n", 0);
-		return(0);
+		printf("0\n");
+		return (0);
 	}
 	else
 	{
