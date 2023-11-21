@@ -18,30 +18,22 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		return (1);
 	}
-	amount = atoi(argv[1]);
 
-	if (amount < 0)
+	amount = atoi(argv[1]);
+	num_of_coins = 0;
+	while (amount > 0)
 	{
-		printf("0\n");
-		return (0);
-	}
-	else
-	{
-		num_of_coins = 0;
-		while (amount != 0)
+		denomination = coins[position];
+		if (amount >= denomination)
 		{
-			denomination = coins[position];
-			if (amount >= denomination)
-			{
-				amount -= denomination;
-				num_of_coins++;
-			}
-			else
-			{
-				position++;
-			}
+			amount -= denomination;
+			num_of_coins++;
 		}
-		printf("%d\n", num_of_coins);
+		else
+		{
+			position++;
+		}
 	}
+	printf("%d\n", num_of_coins);
 	return (0);
 }
