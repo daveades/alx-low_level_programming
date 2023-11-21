@@ -23,27 +23,20 @@ int main(int argc, char **argv)
 	else
 	{
 		amount = atoi(argv[1]);
-		if (amount <= 0)
+		while (amount > 0)
 		{
-			printf("0\n");
-		}
-		else
-		{
-			while (amount > 0)
+			if (amount  >= coins[value])
 			{
-				if (amount  >= coins[value])
-				{
-					amount -= coins[value];
-					num_of_coins += 1;
-				}
-				else
-				{
-					value++;
-				}
+				amount -= coins[value];
+				num_of_coins += 1;
 			}
-			printf("%d\n", num_of_coins);
+			else
+			{
+				value++;
+			}
 		}
-		return (0);
+		printf("%d\n", num_of_coins);
 	}
+	return (0);
 }
 
