@@ -13,21 +13,21 @@ int main(int argc, char **argv)
 	int coins[] = {25, 10, 5, 2, 1};
 	int num_of_coins, value, amount;
 
-	value = 0;
-	num_of_coins = 0;
 	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
 
+	value = 0;
+	num_of_coins = 0;
 	amount = atoi(argv[1]);
 	while (amount > 0)
 	{
 		if (amount  >= coins[value])
 		{
 			amount -= coins[value];
-			num_of_coins += 1;
+			num_of_coins++;
 		}
 		else
 		{
