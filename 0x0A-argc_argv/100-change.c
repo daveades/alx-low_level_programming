@@ -1,17 +1,20 @@
 #include "main.h"
 
 /**
- * main - Entry point
+ * main - prints minimum number of coins needed
+ * to give a certain amount of change
+ * @argc: number of args
+ * @argv: amount of change
  *
- * @argc: num of command line args
- * @argv: array of command line args
- * Return: 0 if success and 1 if fail
+ * Return: 0 or 1 depending on num of args
  */
 int main(int argc, char **argv)
 {
-	int num_of_coins, amount, value;
 	int coins[] = {25, 10, 5, 2, 1};
+	int num_of_coins, value, amount;
 
+	value = 0;
+	num_of_coins = 0;
 	if (argc != 2)
 	{
 		printf("Error\n");
@@ -20,20 +23,27 @@ int main(int argc, char **argv)
 	else
 	{
 		amount = atoi(argv[1]);
-		num_of_coins = 0;
-		while (amount > 0)
+		if (amount <= 0)
 		{
-			if (amount >= coins[value])
-			{
-				amount -= coins[value];
-				num_of_coins++;
-			}
-			else
-			{
-				value++;
-			}
+			printf("0\n");
 		}
-		printf("%d\n", num_of_coins);
+		else
+		{
+			while (amount > 0)
+			{
+				if (amount  >= coins[value])
+				{
+					amount -= coins[value];
+					num_of_coins += 1;
+				}
+				else
+				{
+					value++;
+				}
+			}
+			printf("%d\n", num_of_coins);
+		}
 		return (0);
 	}
 }
+
