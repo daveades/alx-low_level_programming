@@ -2,7 +2,7 @@
 
 char *str_concat(char *s1, char *s2)
 {
-	int size, i, total_size_1, size_2;
+	int total_size, i, size_1, size_2;
 	char *str_concat;
 
 	size_1 = _strlen(s1);
