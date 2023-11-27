@@ -10,7 +10,7 @@
 char *_strdup(char *str)
 {
 	char *new_str;
-	int size;
+	int size, i;
 
 	if (str == NULL)
 	{
@@ -25,7 +25,7 @@ char *_strdup(char *str)
 		new_str[i] = str[i];
 	}
 	str[size] = '\0';
-
+	return (new_str);
 
 }
 
@@ -44,6 +44,6 @@ int _strlen(char *str)
 	{
 		len++;
 	}
-	return (len)
+	return (len);
 }
 
