@@ -23,6 +23,7 @@ char *str_concat(char *s1, char *s2)
 	{
 		str_concat[i] = s2[i];
 	}
+	str_concat[size - 1] = '\0';
 	return(str_concat);
 }
 
