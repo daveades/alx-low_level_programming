@@ -19,9 +19,11 @@ char *str_concat(char *s1, char *s2)
 	{
 		str_concat[i] = s1[i];
 	}
+	second_string_index = 0
 	for(i = size_1; i < total_size - 1; i++)
 	{
-		str_concat[i] = s2[i];
+		str_concat[size_1] = s2[second_string_index];
+		second_string_index++;
 	}
 	str_concat[total_size - 1] = '\0';
 	return(str_concat);
