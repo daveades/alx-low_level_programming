@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * str_concat - concatenates two strings
+ * @s1: first String
+ * @s2: second string
+ *
+ * Return: NULL if fail else char*
+ */
 char *str_concat(char *s1, char *s2)
 {
 	int total_size, i, size_1, size_2;
@@ -23,11 +30,11 @@ char *str_concat(char *s1, char *s2)
 	second_string_index = 0;
 	for (i = size_1; i < total_size - 1; i++)
 	{
-		str_concat[size_1] = s2[second_string_index];
+		str_concat[i] = s2[second_string_index];
 		second_string_index++;
 	}
 	str_concat[total_size - 1] = '\0';
-	return(str_concat);
+	return (str_concat);
 }
 
 /**
