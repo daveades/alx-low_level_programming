@@ -3,6 +3,7 @@
 char *str_concat(char *s1, char *s2)
 {
 	int total_size, i, size_1, size_2;
+	int second_string_index;
 	char *str_concat;
 
 	size_1 = _strlen(s1);
@@ -19,7 +20,7 @@ char *str_concat(char *s1, char *s2)
 	{
 		str_concat[i] = s1[i];
 	}
-	second_string_index = 0
+	second_string_index = 0;
 	for(i = size_1; i < total_size - 1; i++)
 	{
 		str_concat[size_1] = s2[second_string_index];
