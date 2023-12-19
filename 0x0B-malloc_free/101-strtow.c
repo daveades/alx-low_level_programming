@@ -6,25 +6,28 @@
  *
  * Return: pointer to an array of strings (words)
  */
-
 char **strtow(char *str)
 {
+	int num_words;
+	char **words;
+	int i, j, k;
+
 	if (str == NULL || *str == '\0')
 	{
 		return (NULL);
 	}
 
-	int num_words = count_words(str);
-	char **words = allocate_memory(num_words);
+	num_words = count_words(str);
+	words = allocate_memory(num_words);
 
 	if (words == NULL)
 	{
 		return (NULL);
 	}
 
-	int i, j, k;
-
-	i = j = k = 0;
+	i = 0;
+	j = 0;
+	k = 0;
 
 	while (str[i] != '\0')
 	{
@@ -59,8 +62,11 @@ char **strtow(char *str)
  */
 int count_words(char *str)
 {
-	int count = 0;
-	int i = 0;
+	int count;
+	int i;
+
+	count = 0;
+	i = 0;
 
 	while (str[i] != '\0')
 	{
@@ -82,7 +88,9 @@ int count_words(char *str)
  */
 char **allocate_memory(int num_words)
 {
-	char **words = malloc((num_words + 1) * sizeof(char *));
+	char **words;
+
+	words = malloc((num_words + 1) * sizeof(char *));
 
 	if (words == NULL)
 	{
@@ -90,24 +98,6 @@ char **allocate_memory(int num_words)
 	}
 
 	return (words);
-}
-
-/**
- * free_memory - frees memory for an array of words
- * @words: array of words
- * @num_words: number of words
- *
- * Return: void
- */
-void free_memory(char **words, int num_words)
-{
-	int i;
-
-	for (i = 0; i < num_words; i++)
-	{
-		free(words[i]);
-	}
-	free(words);
 }
 
 /**
@@ -122,8 +112,13 @@ void free_memory(char **words, int num_words)
  */
 void copy_word(char **words, char *str, int start, int end, int index)
 {
-	int length = end - start;
+	int length;
 	int i;
+	int m;
+
+	length = end - start;
+	i = 0;
+	m = 0;
 
 	words[index] = malloc((length + 1) * sizeof(char));
 	if (words[index] == NULL)
@@ -131,8 +126,6 @@ void copy_word(char **words, char *str, int start, int end, int index)
 		free_memory(words, index);
 		return;
 	}
-
-	int m = 0;
 
 	for (i = start; i < end; i++)
 	{
