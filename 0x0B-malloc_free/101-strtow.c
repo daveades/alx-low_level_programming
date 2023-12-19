@@ -16,10 +16,8 @@ char **strtow(char *str)
 	{
 		return (NULL);
 	}
-
 	num_words = count_words(str);
 	words = allocate_memory(num_words);
-
 	if (words == NULL)
 	{
 		return (NULL);
@@ -48,9 +46,7 @@ char **strtow(char *str)
 			i++;
 		}
 	}
-
 	words[k] = NULL;
-
 	return (words);
 }
 
@@ -117,7 +113,10 @@ void copy_word(char **words, char *str, int start, int end, int index)
 	int m;
 
 	length = end - start;
-	
+
+	if (length == 0 || str[start] == ' ')
+		return;
+
 	if (length == 0)
 		return;
 	i = 0;
