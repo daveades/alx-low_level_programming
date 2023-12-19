@@ -101,7 +101,9 @@ char **allocate_memory(int num_words)
  */
 void free_memory(char **words, int num_words)
 {
-	for (int i = 0; i < num_words; i++)
+	int i;
+
+	for (i = 0; i < num_words; i++)
 	{
 		free(words[i]);
 	}
@@ -121,6 +123,7 @@ void free_memory(char **words, int num_words)
 void copy_word(char **words, char *str, int start, int end, int index)
 {
 	int length = end - start;
+	int i;
 
 	words[index] = malloc((length + 1) * sizeof(char));
 	if (words[index] == NULL)
@@ -131,7 +134,7 @@ void copy_word(char **words, char *str, int start, int end, int index)
 
 	int m = 0;
 
-	for (int i = start; i < end; i++)
+	for (i = start; i < end; i++)
 	{
 		words[index][m] = str[i];
 		m++;
