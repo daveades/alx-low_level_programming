@@ -89,46 +89,7 @@ char **allocate_memory(int num_words)
 	words = malloc((num_words + 1) * sizeof(char *));
 
 	if (words == NULL)
-	/**
-	 * count_words - counts the number of words in a string
-	 * @str: string to count
-	 *
-	 * Return: number of words in string
-	 */
-int count_words(char *str)
-{
-	int count;
-	int i;
-
-	count = 0;
-	i = 0;
-
-	if (str == NULL || *str == '\0' || (*str == ' ' && *(str + 1) == '\0'))
 	{
-		return -1; // Return -1 to indicate failure
-	}
-
-	while (str[i] != '\0')
-	{
-		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
-		{
-			count++;
-		}
-		i++;
-	}
-
-	return count;
-}
-	int count_words(char *str)
-	{
-		int count;
-		int i;
-
-		count = 0;
-		i = 0;
-
-		while (str[i] != '\0')
-		{
 		return (NULL);
 	}
 
