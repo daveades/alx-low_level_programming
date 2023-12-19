@@ -117,6 +117,9 @@ void copy_word(char **words, char *str, int start, int end, int index)
 	int m;
 
 	length = end - start;
+	
+	if (length == 0)
+		return;
 	i = 0;
 	m = 0;
 
