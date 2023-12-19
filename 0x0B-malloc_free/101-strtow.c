@@ -134,3 +134,21 @@ void copy_word(char **words, char *str, int start, int end, int index)
 	}
 	words[index][m] = '\0';
 }
+/**
+ * free_memory - frees the memory allocated for an array of words
+ * @words: array of words
+ * @num_words: number of words in the array
+ *
+ * Return: void
+ */
+void free_memory(char **words, int num_words)
+{
+	int i;
+
+	for (i = 0; i < num_words; i++)
+	{
+		free(words[i]);
+	}
+
+	free(words);
+}
