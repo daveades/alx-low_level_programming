@@ -12,4 +12,5 @@ int count_words(char *str);
 char **allocate_memory(int num_words);
 void free_memory(char **words, int num_words);
 void copy_word(char **words, char *str, int start, int end, int index);
+char *argstostr(int ac, char **av);
 #endif
