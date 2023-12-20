@@ -72,6 +72,10 @@ int count_words(char *str)
 		}
 		i++;
 	}
+	if (count == 0)
+	{
+		return (NULL);
+	}
 
 	return (count);
 }
