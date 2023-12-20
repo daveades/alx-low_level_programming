@@ -8,25 +8,25 @@
  */
 char **strtow(char *str)
 {
-	int num_words;
 	char **words;
-	int i, j, k;
+	int i, j, k, num_words;
 
 	if (str == NULL || *str == '\0')
 	{
 		return (NULL);
 	}
 	num_words = count_words(str);
+	if (num_words == 0)
+	{
+		return (NULL);
+	}
 	words = allocate_memory(num_words);
 	if (words == NULL)
 	{
 		return (NULL);
 	}
 
-	i = 0;
-	j = 0;
-	k = 0;
-
+	i = j = k =  0;
 	while (str[i] != '\0')
 	{
 		if (str[i] != ' ')
@@ -71,10 +71,6 @@ int count_words(char *str)
 			count++;
 		}
 		i++;
-	}
-	if (count == 0)
-	{
-		return (NULL);
 	}
 
 	return (count);
