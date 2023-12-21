@@ -9,13 +9,15 @@
  */
 char *argstostr(int ac, char **av)
 {
+	int total_length;
+	int i, j, k;
+	char *result;
+
+	total_length = 0;
 	if (ac == 0 || av == NULL)
 	{
 		return (NULL);
 	}
-
-	int total_length = 0;
-	int i, j, k;
 
 	/* Calculate the total length of the concatenated string */
 	for (i = 0; i < ac; i++)
@@ -28,7 +30,7 @@ char *argstostr(int ac, char **av)
 	}
 
 	/* Allocate memory for the concatenated string */
-	char *result = malloc(sizeof(char) * (total_length + 1));
+	result = malloc(sizeof(char) * (total_length + 1));
 
 	if (result == NULL)
 	{
