@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdlib.h>
 
 /**
  * argstostr - Concatenates all the arguments of a program.
@@ -9,35 +9,42 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int total_length;
-	int i, j, k;
-	char *concatenated_str;
+	if (ac == 0 || av == NULL)
+	{
+		return (NULL);
+	}
 
-	total_length = 0;
+	int total_length = 0;
+	int i, j, k;
+
+	/* Calculate the total length of the concatenated string */
 	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; av[i][j] != '\0'; j++)
+		{
 			total_length++;
-		total_length++;
+		}
+		total_length++; /* Account for the newline character */
 	}
 
-	concatenated_str = malloc(sizeof(char) * (total_length + 1));
+	/* Allocate memory for the concatenated string */
+	char *result = malloc(sizeof(char) * (total_length + 1));
 
-	if (concatenated_str == NULL)
+	if (result == NULL)
+	{
 		return (NULL);
+	}
 
 	/* Copy the arguments into the concatenated string */
 	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; av[i][j] != '\0'; j++)
 		{
-			concatenated_str[k] = av[i][j];
-			k++;
+			result[k++] = av[i][j];
 		}
-		concatenated_str[k] = '\n';
-		k++;
+		result[k++] = '\n';
 	}
-	concatenated_str[k] = '\0';
+	result[k] = '\0'; /* Add the null terminator */
 
-	return (concatenated_str);
+	return (result);
 }
