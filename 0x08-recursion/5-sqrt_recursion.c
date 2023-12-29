@@ -26,7 +26,7 @@ int _sqrt_recursion(int n)
 * or -1 if n does not have a natural square root.
 */
 
-int sqrt_helper(unsigned int n, int start, unsigned int end)
+unsigned int sqrt_helper(unsigned int n, int start, unsigned int end)
 {
 	int mid;
 
