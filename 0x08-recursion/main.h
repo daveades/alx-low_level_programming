@@ -1,6 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <string.h>
+
 int _putchar(char c);
 void _puts_recursion(char *s);
 void _print_rev_recursion(char *s);
@@ -11,7 +13,7 @@ int _sqrt_recursion(int n);
 long int sqrt_helper(long int n, long int start, long int end);
 int is_prime_number(int n);
 int is_prime_helper(int n, int i);
-int _strlen(char *s);
+int is_palindrome_helper(char *s, int length);
 int is_palindrome(char *s);
 
 #endif
