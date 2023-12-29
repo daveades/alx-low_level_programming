@@ -21,32 +21,28 @@ int _atoi(char *s)
 		i++;
 	}
 
-	/**
-	 *  Call separate function to iterate through
-	 * the string and convert to integer
-	 */
-	result = convertStringToInt(s, i, sign);
+	result = convertStringToInt(s, sign, result, i);
 
-	return (sign * result);
+	/* Apply the sign to the result */
+	result *= sign;
+
+	return (result);
 }
 
 
 /**
-* convertStringToInt - Iterates through the string and converts to integer
-* @s: The string to be converted
-* @start: The starting index of the string to be converted
-* @sign: The sign of the integer
-*
-* Return: The integer value of the converted string
-*/
-int convertStringToInt(char *s, int start, int sign)
+ * convertStringToInt - Converts a string to an integer.
+ * @s: The string to be converted.
+ * @sign: The sign of the integer.
+ * @result: The initial result value.
+ * @i: The index of the string.
+ *
+ * Return: The integer value of the converted string.
+ */
+int convertStringToInt(char *s, int sign, int result, int i)
 {
-	int result = 0;
-
-	int i;
-
 	/* Iterate through the string */
-	for (i = start; s[i] != '\0'; i++)
+	for (; s[i] != '\0'; i++)
 	{
 		/* Check if character is a digit */
 		if (s[i] >= '0' && s[i] <= '9')
@@ -66,10 +62,6 @@ int convertStringToInt(char *s, int start, int sign)
 		}
 		else
 		{
-			/**
-			 *  Stop parsing the string if a non-digit character is encountered after
-			 * parsing a digit character
-			 */
 			if (result != 0)
 				break;
 
@@ -78,5 +70,6 @@ int convertStringToInt(char *s, int start, int sign)
 				sign *= -1;
 		}
 	}
-	return (result);
+
+return (result);
 }
