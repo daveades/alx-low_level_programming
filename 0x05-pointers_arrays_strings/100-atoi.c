@@ -31,16 +31,15 @@ int _atoi(char *s)
 			/* Convert character to integer and add to result */
 			result = result * 10 + (s[i] - '0');
 		}
-		else if (s[i] == '-' || s[i] == '+')
+		else
 		{
+			/* Stop parsing the string if a non-digit character is encountered after parsing a digit character */
+			if (result != 0)
+				break;
+			
 			/* Check for consecutive signs */
 			if (s[i] == '-')
 				sign *= -1;
-		}
-		else
-		{
-			/* Skip non-digit characters */
-			continue;
 		}
 	}
 
