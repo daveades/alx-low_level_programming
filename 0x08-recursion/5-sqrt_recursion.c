@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * _sqrt_recursion - Calculates the square root of a number recursively.
  * @n: The number to calculate the square root of.
