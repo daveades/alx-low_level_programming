@@ -10,7 +10,7 @@ int _atoi(char *s)
 {
 	int sign = 1;
 	int result = 0;
-	int i;
+	int i = 0;
 
 	/* Check for negative sign */
 	if (s[0] == '-')
@@ -20,7 +20,7 @@ int _atoi(char *s)
 	}
 
 	/* Iterate through the string */
-	for (i = 0; s[i] != '\0'; i++)
+	for (; s[i] != '\0'; i++)
 	{
 		/* Check if character is a digit */
 		if (s[i] >= '0' && s[i] <= '9')
