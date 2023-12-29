@@ -12,7 +12,7 @@ void print_rev(char *s)
 	length = 0;
 	if (s == NULL)
 	{
-		return; /* handle NULL pointer */
+		return;
 	}
 
 
