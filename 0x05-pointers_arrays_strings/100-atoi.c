@@ -41,5 +41,8 @@ int _atoi(char *s)
 		}
 	}
 
-	return (sign * result);
+	/* Apply the sign to the result */
+	result *= sign;
+
+	return (result);
 }
