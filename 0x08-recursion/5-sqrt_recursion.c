@@ -8,11 +8,12 @@
 */
 int _sqrt_recursion(int n)
 {
-	if (n < 0)
-		return (-1);
-	if (n == 0 || n == 1)
-		return (n);
-	return (sqrt_helper(n, 1, n));
+	unsigned int k;
+
+	k = n;
+	if (k == 0 || k == 1)
+		return (k);
+	return (sqrt_helper(k, 1, k));
 }
 
 /**
@@ -25,7 +26,7 @@ int _sqrt_recursion(int n)
 * or -1 if n does not have a natural square root.
 */
 
-int sqrt_helper(int n, int start, int end)
+int sqrt_helper(unsigned int n, int start, unsigned int end)
 {
 	int mid;
 
