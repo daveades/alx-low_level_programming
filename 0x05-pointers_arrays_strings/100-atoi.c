@@ -28,6 +28,12 @@ int _atoi(char *s)
 			/* Convert character to integer and add to result */
 			result = result * 10 + (s[i] - '0');
 		}
+		else if (s[i] == '-' || s[i] == '+')
+		{
+			/* Check for consecutive signs */
+			if (s[i] == '-')
+				sign *= -1;
+		}
 		else
 		{
 			/* Break if non-digit character is encountered */
