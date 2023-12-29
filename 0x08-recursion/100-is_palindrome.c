@@ -8,14 +8,14 @@
  */
 int is_palindrome(char *s)
 {
-	if (*s == '\0')
-	{
-		return (1);
-	}
 
 	int length = 0;
 	char *end = s;
 
+	if (*s == '\0')
+	{
+		return (1);
+	}
 	length = strlen(s);
 
 	return (is_palindrome_helper(s, length));
