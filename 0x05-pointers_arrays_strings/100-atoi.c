@@ -1,7 +1,9 @@
 int _atoi(char *s)
 {
 	int sign = 1;
+
 	int result = 0;
+
 	int i = 0;
 
 	/* Check for negative sign */
@@ -36,5 +38,5 @@ int _atoi(char *s)
 	/* Apply the sign to the result */
 	result *= sign;
 
-	return result;
+	return (result);
 }
