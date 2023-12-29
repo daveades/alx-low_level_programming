@@ -27,7 +27,7 @@ int _atoi(char *s)
 	 */
 	result = convertStringToInt(s, i, sign);
 
-	return (result);
+	return (sign * result);
 }
 
 
