@@ -12,7 +12,6 @@ void print_all(const char *const format, ...)
 	int i = 0;
 	char *s;
 	char c;
-	float f;
 
 	va_start(args, format);
 
