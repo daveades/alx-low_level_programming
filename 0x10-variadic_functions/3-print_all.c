@@ -8,18 +8,19 @@
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int i = 0;
-	char *s, c;
+	int index = 0;
+	char *s;
+	int i;
 	float f;
 
 	va_start(args, format);
-	while (format && format[i])
+	while (format && format[index])
 	{
-		switch (format[i])
+		switch (format[index])
 		{
 			case 'c':
-				c = va_arg(args, int);
-				printf("%c", c);
+				i = va_arg(args, int);
+				printf("%c", i);
 				break;
 			case 'i':
 				i = va_arg(args, int);
@@ -39,10 +40,10 @@ void print_all(const char * const format, ...)
 				printf("%s", s);
 				break;
 		}
-		if (format[i + 1] != '\0' && (format[i] == 'c' ||
-		 format[i] == 'i' || format[i] == 'f' || format[i] == 's'))
+		if (format[index + 1] != '\0' && (format[index] == 'c' ||
+		 format[index] == 'i' || format[index] == 'f' || format[index] == 's'))
 			printf(", ");
-		i++;
+		index++;
 	}
 	va_end(args);
 	printf("\n");
