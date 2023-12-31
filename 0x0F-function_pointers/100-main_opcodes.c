@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
-	
+
 	print_opcodes(num_bytes);
 	return (0);
 }
