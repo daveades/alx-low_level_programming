@@ -39,9 +39,9 @@ int main(int argc, char *argv[])
 	if (num_bytes < 0)
 	{
 		printf("Error\n");
-		return (2);
+		return (1);
 	}
-
+	
 	print_opcodes(num_bytes);
 	return (0);
 }
