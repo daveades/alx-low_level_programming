@@ -13,7 +13,12 @@ int (*get_op_func(char *s))(int, int)
 	int (*ops[5])(int, int) = {op_add, op_sub, op_mul, op_div, op_mod};
 	char operators[5] = {'+', '-', '*', '/', '%'};
 
+	if (s == NULL || s[1] != '\0')
+	{
+		return (NULL);
+	}
 	i = 0;
+
 	while (i < 5)
 	{
 		if (*s == operators[i])
