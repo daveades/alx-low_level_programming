@@ -62,7 +62,7 @@ int validate_input(char *num)
  */
 void multiply_numbers(char *num1, char *num2)
 {
-	int len1, len2, start, i;
+	int len1, len2, start;
 
 	int *result, result_len;
 
