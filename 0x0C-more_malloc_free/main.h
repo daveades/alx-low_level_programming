@@ -14,6 +14,6 @@ int validate_input(char *num);
 void multiply_numbers(char *num1, char *num2);
 void calculate_result(char *num1, char *num2, int *result, int len1,
 					  int len2, int result_len);
-void print_result(int *result, int result_len);
+void print_result(int *result, int start, int result_len);
 
 #endif
