@@ -88,7 +88,7 @@ void multiply_numbers(char *num1, char *num2)
 		return;
 	}
 
-	calculate_result(num1, num2, result, len1, len2, result_len);
+	calculate_result(num1, num2, result, len1, len2);
 
 	start = 0;
 	while (start < result_len && result[start] == 0)
@@ -108,10 +108,9 @@ void multiply_numbers(char *num1, char *num2)
  * @result: The array to store the result.
  * @len1: The length of num1.
  * @len2: The length of num2.
- * @result_len: The length of the result array.
  */
 void calculate_result(char *num1, char *num2, int *result, int len1,
-					  int len2, int result_len)
+					  int len2)
 {
 	int i, j;
 
