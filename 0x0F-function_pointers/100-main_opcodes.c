@@ -13,7 +13,7 @@ void print_opcodes(int num_bytes)
 
 	for (i = 0; i < num_bytes; i++)
 	{
-		printf("%02x ", opcodes[i]);
+		printf("%02hhx ", opcodes[i]);
 	}
 	printf("\n");
 }
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 	if (num_bytes < 0)
 	{
 		printf("Error\n");
-		return (1);
+		return (2);
 	}
 
 	print_opcodes(num_bytes);
