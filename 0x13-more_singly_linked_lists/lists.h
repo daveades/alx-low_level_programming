@@ -1,10 +1,12 @@
 #ifndef LISTS_H
 #define LISTS_H
 
+/* Libraries */
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
+/* Structures */
 /**
  * struct listint_s - singly linked list
  * @n: integer
@@ -20,5 +22,6 @@ typedef struct listint_s
 } listint_t;
 
 /* Function prototypes */
+size_t print_listint(const listint_t *h);
 
 #endif /* LISTS_H */
