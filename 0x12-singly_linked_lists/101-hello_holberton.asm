@@ -12,6 +12,5 @@ main:
     call printf
 
     ; Exit program
-    mov eax, 0x60
-    xor edi, edi
+    xor eax, eax
     ret
