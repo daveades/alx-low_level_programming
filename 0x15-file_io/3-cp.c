@@ -12,17 +12,11 @@ int main(int argc, char *argv[])
 	int fd_from, fd_to;
 	char buffer[BUFFER_SIZE];
 	mode_t permissions = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
-	char *program_name;
 
-	program_name = strrchr(argv[0], '/');
-	if (program_name)
-		program_name++;
-	else
-		program_name = argv[0];
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", program_name);
+		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
 		exit(97);
 	}
 
@@ -40,36 +34,38 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	copy_file(fd_from, fd_to, buffer);
+	copy_file(fd_from, fd_to, buffer, argv[1]);
 
 	close_files(fd_from, fd_to);
 
 	return (0);
 }
 
+
 /**
  * copy_file - Copies the contents of one file to another.
  * @fd_from: The file descriptor of the source file.
  * @fd_to: The file descriptor of the destination file.
  * @buffer: The buffer used for reading and writing data.
+ * @file_from: The path of the source file.
  */
-void copy_file(int fd_from, int fd_to, char *buffer)
+void copy_file(int fd_from, int fd_to, char *buffer, char *file_from)
 {
-	int read_bytes, write_bytes;
+	ssize_t bytes_read, bytes_written;
 
-	while ((read_bytes = read(fd_from, buffer, BUFFER_SIZE)) > 0)
+	while ((bytes_read = read(fd_from, buffer, BUFFER_SIZE)) > 0)
 	{
-		write_bytes = write(fd_to, buffer, read_bytes);
-		if (write_bytes == -1)
+		bytes_written = write(fd_to, buffer, bytes_read);
+		if (bytes_written != bytes_read)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to file\n");
+			dprintf(STDERR_FILENO, "Error: Can't write to destination file\n");
 			exit(99);
 		}
 	}
 
-	if (read_bytes == -1)
+	if (bytes_read == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file\n");
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 }
