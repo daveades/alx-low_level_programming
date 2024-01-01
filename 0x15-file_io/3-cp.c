@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	copy_file(fd_from, fd_to, buffer, argv[1]);
+	copy_file(fd_from, fd_to, buffer, argv[1], argv[2]);
 
 	close_files(fd_from, fd_to);
 
@@ -48,8 +48,10 @@ int main(int argc, char *argv[])
  * @fd_to: The file descriptor of the destination file.
  * @buffer: The buffer used for reading and writing data.
  * @file_from: The path of the source file.
+ * @file_to: The path of the destination file.
  */
-void copy_file(int fd_from, int fd_to, char *buffer, char *file_from)
+void copy_file(int fd_from, int fd_to, char *buffer,
+char *file_from, char *file_to)
 {
 	ssize_t bytes_read, bytes_written;
 
@@ -58,7 +60,7 @@ void copy_file(int fd_from, int fd_to, char *buffer, char *file_from)
 		bytes_written = write(fd_to, buffer, bytes_read);
 		if (bytes_written != bytes_read)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to destination file\n");
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
 	}
