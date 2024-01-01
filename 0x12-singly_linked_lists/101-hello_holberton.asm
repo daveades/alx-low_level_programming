@@ -2,10 +2,10 @@ section .data
     hello db "Hello, Holberton", 0
 
 section .text
-    global _start
+    global main
     extern printf
 
-_start:
+main:
     ; Call printf function
     mov rdi, hello
     xor rax, rax
