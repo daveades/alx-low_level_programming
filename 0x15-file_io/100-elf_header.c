@@ -37,9 +37,9 @@ void print_error(const char *message)
 void print_elf_header(const char *filename)
 {
 	int fd = open(filename, O_RDONLY);
-	char *osabi_name;
-	char *type_name;
+	char *osabi_name, *type_name;
 	Elf64_Ehdr header;
+	int i;
 
 	if (fd == -1)
 	{
@@ -58,7 +58,7 @@ void print_elf_header(const char *filename)
 	}
 	printf("ELF Header:\n");
 	printf("  Magic:   ");
-	for (int i = 0; i < EI_NIDENT; i++)
+	for (i = 0; i < EI_NIDENT; i++)
 		printf("%02x ", header.e_ident[i]);
 	printf("\n");
 	printf("  Class:                             %s\n", header.e_ident[EI_CLASS]
