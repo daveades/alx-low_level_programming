@@ -19,5 +19,6 @@ char *file_from, char *file_to);
 void close_files(int fd_from, int fd_to);
 void print_error(const char *message);
 void print_elf_header(const char *filename);
+#define ELFOSABI_SOLARIS 6
 
 #endif /* MAIN_H */
