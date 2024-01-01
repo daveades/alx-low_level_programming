@@ -4,9 +4,9 @@
 /**
  * main - Entry point of the program.
  * @argc: The number of command-line arguments.
- * @argv: An array of strings representing the command-line arguments.
+ * @argv: An array of strings containing the command-line arguments.
  *
- * Return: 0 on success, non-zero on failure.
+ * Return: 0 on success.
  */
 int main(int argc, char *argv[])
 {
@@ -21,9 +21,9 @@ int main(int argc, char *argv[])
 }
 
 /**
-* print_error - Prints an error message and exits.
-* @message: The error message to print.
-*/
+ * print_error - Prints an error message and exits the program.
+ * @message: The error message to print.
+ */
 void print_error(const char *message)
 {
 	fprintf(stderr, "%s\n", message);
@@ -31,22 +31,20 @@ void print_error(const char *message)
 }
 
 /**
-* print_elf_header - Prints the ELF header of a given file.
-* @filename: The name of the file.
-*/
+ * print_elf_header - Prints the ELF header of a given file.
+ * @filename: The name of the file.
+ */
 void print_elf_header(const char *filename)
 {
 	int fd = open(filename, O_RDONLY);
+	char *osabi_name;
 	char *type_name;
 	Elf64_Ehdr header;
-	char *osabi_name;
-	int i;
 
 	if (fd == -1)
 	{
 		print_error("Error opening file");
 	}
-
 	if (read(fd, &header, sizeof(header)) != sizeof(header))
 	{
 		print_error("Error reading ELF header");
@@ -60,21 +58,22 @@ void print_elf_header(const char *filename)
 	}
 	printf("ELF Header:\n");
 	printf("  Magic:   ");
-	for (i = 0; i < EI_NIDENT; i++)
+	for (int i = 0; i < EI_NIDENT; i++)
 		printf("%02x ", header.e_ident[i]);
 	printf("\n");
-	printf("  Class: %s\n", header.e_ident[EI_CLASS] == ELFCLASS32 ?
-	"ELF32" : "ELF64");
-	printf("  Data: %s\n", header.e_ident[EI_DATA] == ELFDATA2LSB ?
-	"2's complement, little endian" : "2's complement, big endian");
-	printf("  Version: %d\n", header.e_ident[EI_VERSION]);
-	osabi_name = header.e_ident[EI_OSABI] == ELFOSABI_SYSV ?
-	"UNIX - System V" : "Unknown";
-	printf("  OS/ABI: %s\n", osabi_name);
-	printf("  ABI Version: %d\n", header.e_ident[EI_ABIVERSION]);
+	printf("  Class:                             %s\n", header.e_ident[EI_CLASS]
+		== ELFCLASS32 ? "ELF32" : "ELF64");
+	printf("  Data:                              %s\n", header.e_ident[EI_DATA] ==
+	ELFDATA2LSB ? "2's complement, little endian" : "2's complement, big endian");
+	printf("  Version:                           %d (current)\n",
+		header.e_ident[EI_VERSION]);
+	osabi_name = header.e_ident[EI_OSABI] == ELFOSABI_SYSV ? "UNIX - System V" :
+		header.e_ident[EI_OSABI] == ELFOSABI_SOLARIS ? "UNIX - Solaris" : "Unknown";
+	printf("  OS/ABI:                            %s\n", osabi_name);
+	printf("  ABI Version:                       %d\n",
+		header.e_ident[EI_ABIVERSION]);
 	type_name = header.e_type == ET_EXEC ? "EXEC (Executable file)" : "Unknown";
-	printf("  Type: %s\n", type_name);
-	printf("  Entry point address: 0x%lx\n", header.e_entry);
+	printf("  Type:                              %s\n", type_name);
+	printf("  Entry point address:               0x%lx\n", header.e_entry);
 	close(fd);
 }
-
