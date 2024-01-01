@@ -39,7 +39,8 @@ void print_elf_header(const char *filename)
 	int fd = open(filename, O_RDONLY);
 	char *type_name;
 	Elf64_Ehdr header;
-	char *osabi_name
+	char *osabi_name;
+	int i;
 
 	if (fd == -1)
 	{
@@ -50,7 +51,6 @@ void print_elf_header(const char *filename)
 	{
 		print_error("Error reading ELF header");
 	}
-
 	if (header.e_ident[EI_MAG0] != ELFMAG0 ||
 	    header.e_ident[EI_MAG1] != ELFMAG1 ||
 	    header.e_ident[EI_MAG2] != ELFMAG2 ||
@@ -60,7 +60,7 @@ void print_elf_header(const char *filename)
 	}
 	printf("ELF Header:\n");
 	printf("  Magic:   ");
-	for (int i = 0; i < EI_NIDENT; i++)
+	for (i = 0; i < EI_NIDENT; i++)
 		printf("%02x ", header.e_ident[i]);
 	printf("\n");
 	printf("  Class: %s\n", header.e_ident[EI_CLASS] == ELFCLASS32 ?
