@@ -9,6 +9,7 @@
 int pop_listint(listint_t **head)
 {
 	int data;
+	listint_t *temp;
 
 	if (*head == NULL)
 	{
@@ -16,7 +17,7 @@ int pop_listint(listint_t **head)
 	}
 
 	data = (*head)->n;
-	listint_t *temp = *head;
+	temp = *head;
 	*head = (*head)->next;
 	free(temp);
 
