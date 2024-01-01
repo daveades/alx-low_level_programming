@@ -1,4 +1,4 @@
-section .data
+ssection .data
     hello db "Hello, Holberton", 0
 
 section .text
@@ -12,7 +12,6 @@ main:
     call printf
 
     ; Exit program
-    mov eax, 60
+    mov eax, 0x60
     xor edi, edi
-    syscall
-    
+    ret
