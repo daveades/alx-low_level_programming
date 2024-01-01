@@ -1,7 +1,5 @@
 #include "main.h"
 
-
-
 /**
 * main - Entry point
 * @argc: The number of command line arguments
@@ -12,14 +10,19 @@
 int main(int argc, char *argv[])
 {
 	int fd_from, fd_to;
-
 	char buffer[BUFFER_SIZE];
-
 	mode_t permissions = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
+	char *program_name;
+
+	program_name = strrchr(argv[0], '/');
+	if (program_name)
+		program_name++;
+	else
+		program_name = argv[0];
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
+		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", program_name);
 		exit(97);
 	}
 
