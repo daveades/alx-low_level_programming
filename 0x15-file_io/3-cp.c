@@ -11,7 +11,7 @@
 */
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to, read_bytes, write_bytes;
+	int fd_from, fd_to;
 
 	char buffer[BUFFER_SIZE];
 
