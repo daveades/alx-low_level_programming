@@ -5,16 +5,11 @@
  * @head: Pointer to the head of the linked list.
  * @str: String to be stored in the new node.
  *
- * Return: Address of the new node, or NULL if it fails.
+ * Return: Pointer to the newly created node.
  */
 list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new_node;
-
-	if (str == NULL)
-	{
-		return (NULL);
-	}
 
 	new_node = malloc(sizeof(list_t));
 	if (new_node == NULL)
@@ -29,6 +24,7 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 	}
 
+	new_node->len = strlen(str);
 	new_node->next = *head;
 	*head = new_node;
 
