@@ -3,6 +3,7 @@ section .data
 
 section .text
     global _start
+    extern printf
 
 _start:
     ; Call printf function
@@ -14,3 +15,4 @@ _start:
     mov eax, 60
     xor edi, edi
     syscall
+    
