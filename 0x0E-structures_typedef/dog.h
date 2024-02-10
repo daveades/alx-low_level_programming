@@ -1,5 +1,6 @@
 #ifndef DOG_H
 #define DOG_H
+#define NULL ((void *)0)
 
 /**
  * struct dog - dog structure
