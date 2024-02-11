@@ -25,5 +25,6 @@ dog_t *new_dog(char *name, float age, char *owner);
 /* Standard Library */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #endif
