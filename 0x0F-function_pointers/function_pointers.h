@@ -4,5 +4,8 @@
 /* Function Prototypes */
 void print_name(char *name, void (*f)(char *));
 
+/* standard library */
+#include <stdlib.h>
+
 
 #endif
