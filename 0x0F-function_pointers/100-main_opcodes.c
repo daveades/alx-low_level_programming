@@ -2,46 +2,49 @@
 #include <stdlib.h>
 
 /**
- * print_opcodes - Prints the opcodes of a given number of bytes.
- * @num_bytes: The number of bytes to print.
+ * print_opcodes - prints the opcodes of its own main function
+ * @a: address of the main function
+ * @n: number of bytes to print
+ *
+ * Return: void
  */
-void print_opcodes(int num_bytes)
-{
-	unsigned char *opcodes = (unsigned char *)print_opcodes;
 
+void print_opcodes(char *a, int n)
+{
 	int i;
 
-	for (i = 0; i < num_bytes; i++)
+	for (i = 0; i < n; i++)
 	{
-		printf("%02hhx ", opcodes[i]);
+		printf("%.2hhx", a[i]);
+		if (i < n - 1)
+			printf(" ");
 	}
 	printf("\n");
 }
 
 /**
- * main - Entry point of the program.
- * @argc: The number of command-line arguments.
- * @argv: An array of strings containing the command-line arguments.
+ * main - prints the opcodes of its own main function
+ * @argc: number of arguments
+ * @argv: array of arguments
  *
- * Return: 0 on success, non-zero on failure.
+ * Return: 1 if the number of arguments is not 2, 2 if the number of bytes is
+ * negative
  */
 int main(int argc, char *argv[])
 {
-	int num_bytes;
+	int n;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
-		return (1);
+		exit(1);
 	}
-
-	num_bytes = atoi(argv[1]);
-	if (num_bytes < 0)
+	n = atoi(argv[1]);
+	if (n < 0)
 	{
 		printf("Error\n");
-		return (2);
+		exit(2);
 	}
-
-	print_opcodes(num_bytes);
+	print_opcodes((char *)&main, n);
 	return (0);
 }
