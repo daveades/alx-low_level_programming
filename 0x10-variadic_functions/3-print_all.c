@@ -44,5 +44,5 @@ void print_all(const char * const format, ...)
 		index++;
 	}
 	va_end(args);
-	print("\n");
+	printf("\n");
 }
