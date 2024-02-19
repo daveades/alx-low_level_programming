@@ -3,6 +3,7 @@
 
 /* standard libraries */
 #include <stdarg.h>
+#include <stdio.h>
 
 /* Function prototypes */
 int sum_them_all(const unsigned int n, ...);
