@@ -25,6 +25,10 @@ void print_strings(const char *separator, const unsigned int n, ...)
 				printf("%s ", separator);
 			}
 		}
+		else
+		{
+			printf("(null)");
+		}
 	}
 	printf("\n");
 	va_end(args);
